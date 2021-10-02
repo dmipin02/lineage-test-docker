@@ -16,6 +16,9 @@ RUN apt -y install libwxgtk2.8-dev openjdk-7-jdk
 
 RUN useradd -m -s /bin/sh droid
 
+RUN echo "root:mysuperuserpass"  | chpasswd && \
+    echo "droid:mysuperuserpass" | chpasswd
+
 USER droid
 
 RUN mkdir -p $home/bin && mkdir -p $home/android/lineage && \
